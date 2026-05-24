@@ -1,0 +1,66 @@
+# Telegram bot core
+pyrofork==2.2.11
+tgcrypto
+pyrogram
+
+# Async & utilities
+aiofiles
+aioshutil
+aiohttp
+asyncio
+uvloop
+
+# Download engines
+aria2p
+yt-dlp
+qbittorrent-api
+
+# Google Drive
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
+
+# Database
+motor
+pymongo
+
+# Media processing
+pillow
+mutagen
+python-magic
+xattr
+
+# Telegraph & web
+telegraph
+html_telegraph_poster
+flask
+gevent
+gunicorn
+httpx
+requests
+lxml
+beautifulsoup4
+cloudscraper
+
+# Scheduling & task
+apscheduler
+tenacity
+natsort
+psutil
+
+# Heroku & config
+heroku3
+python-dotenv
+
+# Misc tools
+waybackpy
+speedtest-cli
+feedparser
+gTTS
+pybase64
+pycryptodome
+dnspython
+urllib3
+
+# Scraping
+git+https://github.com/zevtyardt/lk21.git
