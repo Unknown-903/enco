@@ -61,6 +61,7 @@ pybase64
 pycryptodome
 dnspython
 urllib3
+pytz
 
 # Scraping
 git+https://github.com/zevtyardt/lk21.git
