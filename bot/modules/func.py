@@ -506,7 +506,7 @@ async def checking_access(user_id, button=None):
             short_url(f"https://telegram.me/{bot_name}?start={token}")
         )
         tmsg = "Your <b>Token</b> is expired. Get a new one."
-        tmsg += f"\n<b>Token Validity</b>: {get_readable_time(config_dict["TOKEN_TIMEOUT"])}"
+        tmsg += f"\n<b>Token Validity</b>: {get_readable_time(config_dict['TOKEN_TIMEOUT'])}"
         return (
             tmsg,
             button
