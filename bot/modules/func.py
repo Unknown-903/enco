@@ -471,7 +471,7 @@ async def callback_handler(client, CallbackQuery):
 
 
 async def checking_access(user_id, button=None):
-    if not config_dict["TOKEN_TIMEOUT"]:
+    if not config_dict['TOKEN_TIMEOUT']:
         return None, button
     user_data.setdefault(user_id, {})
     data = user_data[user_id]
@@ -481,7 +481,7 @@ async def checking_access(user_id, button=None):
     isExpired = (
         expire is None
         or expire is not None
-        and (time() - expire) > config_dict["TOKEN_TIMEOUT"]
+        and (time() - expire) > config_dict['TOKEN_TIMEOUT']
     )
     if isExpired:
         token = (
@@ -786,7 +786,7 @@ async def start(client, message):
                 ttime
             )
         msg = "Token refreshed successfully!\n\n"
-        msg += f"Validity: {get_readable_time(int(config_dict["TOKEN_TIMEOUT"]))}"
+        msg += f"Validity: {get_readable_time(int(config_dict['TOKEN_TIMEOUT']))}"
         return await sendMessage(
             message,
             msg
