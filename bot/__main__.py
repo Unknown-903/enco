@@ -341,7 +341,6 @@ async def main():
                  start_server(),
                  intialize_userbot(False),
                  sync_to_async(clean_all),
-                 torrent_search.initiate_search_tools(),
                  telegraph.create_account(),
                  rclone_serve_booter(),
                  sync_to_async(start_aria2_listener, wait=False),
