@@ -25,7 +25,7 @@ from os import remove as osremove, rename as osrename, path as ospath, replace a
 from pyrogram.errors import PeerIdInvalid, RPCError, UserNotParticipant, FloodWait
 from psutil import disk_usage, cpu_percent, swap_memory, cpu_count, virtual_memory, net_io_counters, boot_time
 
-from bot import bot, botStartTime, config_dict, task_dict_lock, task_dict, DATABASE_URL, DOWNLOAD_DIR, LOGGER, OWNER_ID, shorteneres_list, user_data
+from bot import bot, botStartTime, config_dict, task_dict_lock, task_dict, DATABASE_URL, DOWNLOAD_DIR, LOGGER, OWNER_ID, user_data
 from bot.helper.ext_utils.db_handler import DbManager
 from bot.helper.ext_utils.files_utils import get_base_name
 from bot.helper.ext_utils.telegraph_helper import telegraph
@@ -328,7 +328,7 @@ async def check_duplicate_file(self, up_name):
     return False, None
 
 def short_url(longurl, attempt=0):
-    if not shorteneres_list:
+    if True:  # shorteneres_list removed
         return longurl
     if attempt >= 4:
         return longurl
