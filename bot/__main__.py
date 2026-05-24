@@ -36,7 +36,9 @@ from bot.helper.telegram_helper.button_build import ButtonMaker
 from bot.helper.telegram_helper.filters import CustomFilters
 from bot.helper.telegram_helper.message_utils import limit, sendMessage, editMessage, sendFile, auto_delete_message, sendingMessage, deleteMessage, editMarkup, editPhoto, sendCustom, editCustom, copyMessage
 from bot.modules import (authorize, bot_settings, cancel_task, exec, mirror_leech, speed_test, status, resume_task,
-                         user_settings, shell, purge, broadcase, media_info, save_message)
+                         user_settings, shell, purge, broadcase, media_info, save_message, func, clone, gd_count,
+                         gd_delete, multi_search, torrent_search, torrent_select, fast_download, rss, wayback,
+                         hash, bypass, scrapper, info, misc_tools, backup, join_chat, video_tools, ddls)
 
 
 @new_task
