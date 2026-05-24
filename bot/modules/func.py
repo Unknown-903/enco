@@ -30,7 +30,7 @@ from bot.helper.ext_utils.db_handler import DbManager
 from bot.helper.ext_utils.files_utils import get_base_name
 from bot.helper.ext_utils.telegraph_helper import telegraph
 from bot.helper.telegram_helper.message_utils import get_tg_link_message
-from bot.helper.ext_utils.links_utils import is_gdrive_id, is_telegram_link
+from bot.helper.ext_utils.links_utils import is_gdrive_id, is_tele_link
 from bot.helper.ext_utils.bot_utils import cmd_exec, sync_to_async, get_telegraph_list, new_task
 from bot.helper.ext_utils.status_utils import get_readable_file_size, get_readable_time
 from bot.helper.telegram_helper.filters import CustomFilters
@@ -260,7 +260,7 @@ async def stop_duplicate_leech(name, size, listener):
         from_chat_id = leech_dict['from_chat_id']
         message_id = leech_dict['message_id']
     
-        if link and is_telegram_link(link):
+        if link and is_tele_link(link):
             try:
                 reply_to, session = await get_tg_link_message(link)
             except Exception as e:
