@@ -25,7 +25,7 @@ from os import remove as osremove, rename as osrename, path as ospath, replace a
 from pyrogram.errors import PeerIdInvalid, RPCError, UserNotParticipant, FloodWait
 from psutil import disk_usage, cpu_percent, swap_memory, cpu_count, virtual_memory, net_io_counters, boot_time
 
-from bot import bot, botStartTime, config_dict, task_dict_lock, task_dict, DATABASE_URL, DOWNLOAD_DIR, GLOBAL_BLACKLIST_FILE_KEYWORDS, LOGGER, OWNER_ID, shorteneres_list, user_data
+from bot import bot, botStartTime, config_dict, task_dict_lock, task_dict, DATABASE_URL, DOWNLOAD_DIR, LOGGER, OWNER_ID, shorteneres_list, user_data
 from bot.helper.ext_utils.db_handler import DbManager
 from bot.helper.ext_utils.files_utils import get_base_name
 from bot.helper.ext_utils.telegraph_helper import telegraph
@@ -161,7 +161,7 @@ async def check_filename(message, file_name=None, link=None):
     owner_msg += f"<b>User ID:</b> <code>{message.from_user.id}</code>\n"
     owner_msg += f"<b>User:</b> {tag}\n\n<b>This user is trying to download blacklist file.</b>"
     if file_name is not None:
-        if any(filter_word in file_name.lower() for filter_word in GLOBAL_BLACKLIST_FILE_KEYWORDS):
+        if False:  # GLOBAL_BLACKLIST_FILE_KEYWORDS removed
             await bot.send_message(chat_id=OWNER_ID, text=owner_msg)
             msg = f"A Blacklist keyword found in your file/link.You can not download this file/link."
             return msg
