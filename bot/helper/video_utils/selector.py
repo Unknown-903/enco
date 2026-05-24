@@ -83,8 +83,6 @@ class SelectMode():
                     msg += f'\nFont Size: <b>{fontsize}</b>'
                 if fontcolour := self.extra_data.get('fontcolour'):
                     msg += f'\nFont Colour: <b>{fontcolour}</b>'
-        if quality := self.extra_data.get('quality'):
-            msg += f'\nQuality: <b>{quality}</b>'
         if self.mode == 'watermark' and (wmsize := self.extra_data.get('wmsize')):
             msg += f'\nWM Size: <b>{wmsize}</b>'
             if wmsize and (wmposition := self.extra_data.get('wmposition')):
@@ -135,8 +133,6 @@ class SelectMode():
                         buttons.button_data(f"{'🔥 ' if await aiopath.exists(self.extra_data.get('subfile', '')) else ''}Sub File", 'vidtool subfile', 'header')
                     buttons.button_data('Font Style', 'vidtool fontstyle', 'header')
 
-            if self.mode in ('compress', 'watermark', 'convert') or self.extra_data.get('hardsub'):
-                buttons.button_data('Quality', 'vidtool quality', 'header')
             if self.mode == 'watermark':
                 buttons.button_data('Popup', 'vidtool popupwm', 'header')
         else:
