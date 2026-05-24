@@ -212,3 +212,14 @@ def new_thread(func):
         future = run_coroutine_threadsafe(func(*args, **kwargs), bot_loop)
         return future.result() if wait else future
     return wrapper
+
+
+async def get_telegraph_list(telegraph_content: list):
+    from bot.helper.ext_utils.telegraph_helper import telegraph
+    from bot.helper.telegram_helper.button_build import ButtonMaker
+    path = [(await telegraph.create_page(title='Search Results', content=content))['path'] for content in telegraph_content]
+    if len(path) > 1:
+        await telegraph.edit_telegraph(path, telegraph_content)
+    buttons = ButtonMaker()
+    buttons.button_link('View', f'https://telegra.ph/{path[0]}')
+    return buttons.build_menu(1)
