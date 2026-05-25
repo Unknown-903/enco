@@ -38,7 +38,7 @@ from bot.helper.ext_utils.bot_utils import update_user_ldata
 from bot.helper.telegram_helper.bot_commands import BotCommands
 from bot.helper.telegram_helper.button_build import ButtonMaker
 from bot.helper.telegram_helper.message_utils import editMessage, sendMessage
-from bot.helper.mirror_leech_utils.gdrive_utils.search import gdSearch
+from bot.helper.mirror_utils.gdrive_utlis.search import gdSearch
 
 leech_data = {}
 bot_name = bot.me.username
