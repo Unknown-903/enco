@@ -270,7 +270,7 @@ class TaskListener(TaskConfig):
                 #    f'<b>└ At: </b>{dt_time} ({TIME_ZONE_TITLE})\n\n')
             ONCOMPLETE_LEECH_LOG = config_dict['ONCOMPLETE_LEECH_LOG']
             if not files:
-                uploadmsg = await sendingMessage(msg, self.message, images, buttons.build_menu(2))
+                uploadmsg = await sendingMessage(msg, self.message, None, buttons.build_menu(2))
                 if self.user_dict.get('enable_pm') and self.isSuperChat:
                     if reply_to and is_media(reply_to):
                         await sendMedia(msg, self.user_id, reply_to, buttons_scr.build_menu(2))
@@ -303,7 +303,7 @@ class TaskListener(TaskConfig):
                     if len(msg + fmsg) - limit.total > 1024:
                         uploadmsg = await sendMessage(msg + fmsg, self.message, buttons.build_menu(2))
                     else:
-                        uploadmsg = await sendingMessage(msg + fmsg, self.message, images, buttons.build_menu(2))
+                        uploadmsg = await sendingMessage(msg + fmsg, self.message, None, buttons.build_menu(2))
                     if self.user_dict.get('enable_pm') and self.isSuperChat:
                         if reply_to and is_media(reply_to):
                             await sendMedia(msg + fmsg, self.user_id, reply_to, buttons_scr.build_menu(2))
