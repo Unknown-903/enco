@@ -276,7 +276,7 @@ class TaskListener(TaskConfig):
                         await sendMedia(msg, self.user_id, reply_to, buttons_scr.build_menu(2))
                     else:
                         await copyMessage(self.user_id, uploadmsg, buttons_scr.build_menu(2))
-                if (chat_id := config_dict['LEECH_LOG']) and ONCOMPLETE_LEECH_LOG:
+                if (chat_id := config_dict['LEECH_LOG']) and ONCOMPLETE_LEECH_LOG and chat_id != self.message.chat.id:
                     await copyMessage(chat_id, uploadmsg, buttons_scr.build_menu(2))
             else:
                 result_msg = 0
@@ -293,7 +293,7 @@ class TaskListener(TaskConfig):
                                 result_msg += 1
                             else:
                                 await copyMessage(self.user_id, uploadmsg, buttons_scr.build_menu(2))
-                        if (chat_id := config_dict['LEECH_LOG']) and ONCOMPLETE_LEECH_LOG:
+                        if (chat_id := config_dict['LEECH_LOG']) and ONCOMPLETE_LEECH_LOG and chat_id != self.message.chat.id:
                             await copyMessage(chat_id, uploadmsg, buttons_scr.build_menu(2))
                         if self.isSuperChat and (stime := config_dict['AUTO_DELETE_UPLOAD_MESSAGE_DURATION']):
                             bot_loop.create_task(auto_delete_message(uploadmsg, stime=stime))
@@ -309,7 +309,7 @@ class TaskListener(TaskConfig):
                             await sendMedia(msg + fmsg, self.user_id, reply_to, buttons_scr.build_menu(2))
                         else:
                             await copyMessage(self.user_id, uploadmsg, buttons_scr.build_menu(2))
-                    if (chat_id := config_dict['LEECH_LOG']) and ONCOMPLETE_LEECH_LOG:
+                    if (chat_id := config_dict['LEECH_LOG']) and ONCOMPLETE_LEECH_LOG and chat_id != self.message.chat.id:
                         await copyMessage(chat_id, uploadmsg, buttons_scr.build_menu(2))
             if self.seed:
                 if self.newDir:
