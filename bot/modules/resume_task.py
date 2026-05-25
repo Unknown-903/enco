@@ -12,7 +12,6 @@ from bot.helper.telegram_helper.message_utils import sendMessage
 from bot.modules.clone import Clone
 from bot.modules.mirror_leech import Mirror
 from bot.modules.video_tools import VidTools
-from bot.modules.ytdlp import YtDlp
 
 
 incompte_dict = {}
@@ -73,9 +72,7 @@ async def start_resume_task(client: Client, tasks: list):
         message.from_user = msg.from_user
         if not user_id:
             user_id = message.from_user.id
-        if isYt:
-            YtDlp(client, message, isLeech=isLeech).newEvent()
-        elif isClone:
+        if isClone:
             Clone(client, message).newEvent()
         elif isVt:
             VidTools(client, message, isLeech=isLeech).newEvent()
