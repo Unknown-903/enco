@@ -202,7 +202,8 @@ class ExtraSelect:
             await extra_mode(*args)
         await wrap_future(future)
         self.executor.event.set()
-        await deleteMessage(self._reply)
+        if self._reply:
+            await deleteMessage(self._reply)
         if self.is_cancel:
             self._listener.suproc = 'cancelled'
             await self._listener.onUploadError(f'{VID_MODE[self.executor.mode]} stopped by user!')
