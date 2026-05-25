@@ -149,8 +149,10 @@ class VidEcxecutor(FFProgress):
                     return file
 
     async def _final_path(self, outfile=''):
-        if self._metadata:
-            self._up_path = outfile or self.outfile
+        if outfile:
+            self._up_path = outfile
+        elif self._metadata:
+            self._up_path = self.outfile
         else:
             scan_dir = self._up_path if self._is_dir else ospath.split(self._up_path)[0]
             for dirpath, _, files in await sync_to_async(walk, scan_dir):
@@ -311,7 +313,7 @@ class VidEcxecutor(FFProgress):
             if self.is_cancel:
                 return
 
-        return await self._final_path()
+        return await self._final_path(self.outfile)
 
     async def _rm_stream(self):
         file_list = await self._get_files()
