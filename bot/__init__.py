@@ -309,9 +309,6 @@ NONPREMIUM_LIMIT = float(NONPREMIUM_LIMIT) if NONPREMIUM_LIMIT else ''
 STATUS_LIMIT = environ.get('STATUS_LIMIT', '')
 STATUS_LIMIT = int(STATUS_LIMIT) if STATUS_LIMIT else 5
 
-TORRENT_DIRECT_LIMIT = environ.get('TORRENT_DIRECT_LIMIT', '')
-TORRENT_DIRECT_LIMIT = float(TORRENT_DIRECT_LIMIT) if TORRENT_DIRECT_LIMIT else ''
-FSUB_CHANNEL_ID = "-1001963446260"
 TOTAL_TASKS_LIMIT = environ.get('TOTAL_TASKS_LIMIT', '')
 TOTAL_TASKS_LIMIT = int(TOTAL_TASKS_LIMIT) if TOTAL_TASKS_LIMIT else ''
 
@@ -331,8 +328,6 @@ ZIP_UNZIP_LIMIT = float(ZIP_UNZIP_LIMIT) if ZIP_UNZIP_LIMIT else ''
 STORAGE_THRESHOLD = environ.get('STORAGE_THRESHOLD', '')
 STORAGE_THRESHOLD = float(STORAGE_THRESHOLD) if STORAGE_THRESHOLD else ''
 
-MAX_YTPLAYLIST = environ.get('MAX_YTPLAYLIST', '')
-MAX_YTPLAYLIST = int(MAX_YTPLAYLIST) if MAX_YTPLAYLIST else ''
 # ======================================================================
 
 
@@ -349,17 +344,8 @@ if GOFILE:
 
 # ============================= FORCE =================================
 # Auto Mute
-FORCE_SHORTEN = environ.get('FORCE_SHORTEN', 'False').lower() == 'true'
-AUTO_MUTE = environ.get('AUTO_MUTE', 'False').lower() == 'true'
-MUTE_CHAT_ID = "-1001963446260"
-AUTO_MUTE_DURATION = int(environ.get('AUTO_MUTE_DURATION', 30))
 # Username
-FUSERNAME = environ.get('FUSERNAME', 'False').lower() == 'true'
 # Subscribe
-FSUB = environ.get('FSUB', 'False').lower() == 'true'
-#FSUB_CHANNEL_ID = int(environ.get('FSUB_CHANNEL_ID', ''))
-FSUB_BUTTON_NAME = environ.get('FSUB_BUTTON_NAME', 'Join Channel')
-CHANNEL_USERNAME = environ.get('CHANNEL_USERNAME', 'hexafreinds')
 # ======================================================================
 
 
@@ -367,7 +353,6 @@ CHANNEL_USERNAME = environ.get('CHANNEL_USERNAME', 'hexafreinds')
 STICKERID_COUNT = environ.get('STICKERID_COUNT', 'CAACAgQAAxkBAAKE5GcY_waybDI9-OZqyB11EXYdoGrHAAKiGgACIPZSDMoAAcpM2WzqZDYE')
 STICKERID_ERROR = environ.get('STICKERID_ERROR', 'CAACAgUAAxkBAAKE0mcY-4dK5n6f6g48N9Ewan6EwvqzAAKiBwACo5GpVIbD3xPwDzqSNgQ')
 STICKERID_LEECH = environ.get('STICKERID_LEECH', 'CAACAgQAAxkBAAKE4WcY_ZUB7seTjXokfngVI1d-8rOnAAKxGgACIPZSDOnpobqbU-_dNgQ')
-STICKERID_MIRROR = environ.get('STICKERID_MIRROR', 'CAACAgUAAxkBAAKE3mcY_RIiOQABU057pFcXzGirQawrNwACXQ8AAhNcSFbQs6XZtrORmzYE')
 STICKER_DELETE_DURATION = int(environ.get('STICKER_DELETE_DURATION', 120))
 # ======================================================================
 
@@ -383,7 +368,6 @@ IMAGE_BOLD = environ.get('IMAGE_BOLD', 'https://graph.org/file/e0c29cf9bbf7dfd5d
 IMAGE_BYE = environ.get('IMAGE_BYE', 'https://graph.org/file/67b2460f8876fc32db886-c89db46da6662af053.jpg')
 IMAGE_CANCEL = environ.get('IMAGE_CANCEL', 'https://graph.org/file/ba0a2e0fe939b05427a92-6bfb6342485bf0e53a.jpg')
 IMAGE_CAPTION = environ.get('IMAGE_CAPTION', 'https://graph.org/file/2da667f5f93737fa5ee70-7db40690a107384a39.jpg')
-IMAGE_COMMONS_CHECK = environ.get('IMAGE_COMMONS_CHECK', 'https://graph.org/file/518f52a70c871909fbff3-aabf1f8cb7901658fe.jpg')
 IMAGE_COMPLETE = environ.get('IMAGE_COMPLETE', images)
 IMAGE_CONEDIT = environ.get('IMAGE_CONEDIT', 'https://graph.org/file/54dcbd2bc0698c571e2d9-b590c6c0a96f575f29.jpg')
 IMAGE_CONPRIVATE = environ.get('IMAGE_CONPRIVATE', 'https://graph.org/file/aced58062006da3dab2a6-f9a4fd26303a6c584d.jpg')
@@ -394,12 +378,9 @@ IMAGE_EXTENSION = environ.get('IMAGE_EXTENSION', 'https://graph.org/file/241538f
 IMAGE_GD = environ.get('IMAGE_GD', 'https://graph.org/file/834e49f9b5b31985dc63e-0ddbfe0c0af13b289f.jpg')
 IMAGE_HELP = environ.get('IMAGE_HELP', 'https://graph.org/file/786d876956ffd92933e5a-d7d3374cd21780c4cb.jpg')
 IMAGE_HTML = environ.get('IMAGE_HTML', 'https://graph.org/file/11dc20f036a5725ebb04d-5b2067f4882df86a2e.jpg')
-IMAGE_IMDB = environ.get('IMAGE_IMDB', 'https://graph.org/file/69d0b2a3da7daaca13374-878f19d5458afec3bf.jpg')
 IMAGE_INFO = environ.get('IMAGE_INFO', 'https://graph.org/file/5ef00ebe4fff7bf441be0-7c0dd7c0af27b4f553.jpg')
 IMAGE_ITALIC = environ.get('IMAGE_ITALIC', 'https://graph.org/file/f8184418b1f921a43a7de-a320e7db583217b0ea.jpg')
-IMAGE_JD = environ.get('IMAGE_JD', 'https://graph.org/file/90d9e5281227509960d73-d5b0d7a77fcc82b2b8.jpg')
 IMAGE_LOGS = environ.get('IMAGE_LOGS', 'https://graph.org/file/3d3d4ff6da76a7ba9ae7e-d79bc00f3e921a022f.jpg')
-IMAGE_MDL = environ.get('IMAGE_MDL', 'https://graph.org/file/bf022a38e6e604314bcc0-b52c3c257d5c95634a.jpg')
 IMAGE_MEDINFO = environ.get('IMAGE_MEDINFO', 'https://graph.org/file/01d4c038e7ffafa2d7b01-ad60baee9fa8647c44.jpg')
 IMAGE_METADATA = environ.get('IMAGE_METADATA', 'https://graph.org/file/9257f155ec587cc708e03-452d86c7775776f5d4.jpg')
 IMAGE_MONO = environ.get('IMAGE_MONO', 'https://graph.org/file/1136d3236f65922811cf5-305a6d4fc7bbbd73bc.jpg')
@@ -407,38 +388,26 @@ IMAGE_NORMAL = environ.get('IMAGE_NORMAL', 'https://graph.org/file/d959822219c17
 IMAGE_OWNER = environ.get('IMAGE_OWNER', 'https://graph.org/file/2748a01faa27b6a6877e1-d6fe36073bd672ab8d.jpg')
 IMAGE_PAUSE = environ.get('IMAGE_PAUSE', 'https://graph.org/file/5274b0b22d50f70d4ac5c-be94eff5048ac8a959.jpg')
 IMAGE_PRENAME = environ.get('IMAGE_PRENAME', 'https://graph.org/file/36389155d2eab8fbbe8b8-559521f36cfe5b00ea.jpg')
-IMAGE_QBIT = environ.get('IMAGE_QBIT', 'https://graph.org/file/06c06767756761a69ef40-17797558c5cdc21d1a.jpg')
 IMAGE_RCLONE = environ.get('IMAGE_RCLONE', 'https://graph.org/file/6b6e4b9fd02e60bee148a-a091906157e2454f0f.jpg')
 IMAGE_REMNAME = environ.get('IMAGE_REMNAME', 'https://graph.org/file/4d10c8f4248daf4a490aa-c320435d4408f54385.jpg')
-IMAGE_RSS = environ.get('IMAGE_RSS', 'https://graph.org/file/d9b8562c5c130dc4f7a14-794534955e3faa34a5.jpg')
-IMAGE_SEARCH = environ.get('IMAGE_SEARCH', 'https://graph.org/file/d27aa5734d1661de17f39-c639d6df08e87eb95d.jpg')
 IMAGE_STATS = environ.get('IMAGE_STATS', 'https://graph.org/file/fa1e0859b156b522a7a0b-6a200457fa30020594.jpg')
 IMAGE_STATUS = environ.get('IMAGE_STATUS', 'https://graph.org/file/267a5d4ed16bd826cc0ad-28109866401cfeb6e0.jpg')
 IMAGE_SUFNAME = environ.get('IMAGE_SUFNAME', 'https://graph.org/file/9934d97e31a71332b1643-0f222759a97146e877.jpg')
-IMAGE_TMDB = environ.get('IMAGE_TMDB', 'https://graph.org/file/a7cabcbcf13eba509dbaa-87b76e87a199561b28.jpg')
 IMAGE_TXT = environ.get('IMAGE_TXT', 'https://graph.org/file/63f9023443fe2102274d5-811a7178da9a5f63c6.jpg')
 IMAGE_UNAUTH = environ.get('IMAGE_UNAUTH', 'https://envs.sh/Ah0.jpg')
 IMAGE_UNKNOW = environ.get('IMAGE_UNKNOW', 'https://envs.sh/AhI.jpg')
 IMAGE_USER = environ.get('IMAGE_USER', 'https://envs.sh/Ahn.jpg')
 IMAGE_USETIINGS = environ.get('IMAGE_USETIINGS', 'https://envs.sh/AhT.jpg')
 IMAGE_VIDTOOLS = environ.get('IMAGE_VIDTOOLS', 'https://envs.sh/AhR.jpg')
-IMAGE_WEL = environ.get('IMAGE_WEL', 'https://envs.sh/AhJ.jpg')
-IMAGE_WIBU = environ.get('IMAGE_WIBU', 'https://envs.sh/AhH.jpg')
-IMAGE_YT = environ.get('IMAGE_YT', 'https://envs.sh/AhV.jpg')
 IMAGE_ZIP = environ.get('IMAGE_ZIP', 'https://envs.sh/Add.jpg')
 # ======================================================================
 
 
 # =========================== ACCOUNTS =================================
 # JDownloader
-JD_EMAIL = environ.get('JD_EMAIL', '')
-JD_PASS = environ.get('JD_PASS', '')
 # Uptobox
-UPTOBOX_TOKEN = environ.get('UPTOBOX_TOKEN', '')
 # GDTot
-CRYPT_GDTOT = environ.get('CRYPT_GDTOT', '')
 # FileLion
-FILELION_API = environ.get('FILELION_API', '')
 # StreamWish
 STREAMWISH_API = environ.get('STREAMWISH_API', '')
 # SharerPW
@@ -606,32 +575,20 @@ config_dict = {'BOT_TOKEN': BOT_TOKEN,
                'MEGA_LIMIT': MEGA_LIMIT,
                'NONPREMIUM_LIMIT': NONPREMIUM_LIMIT,
                'STATUS_LIMIT': STATUS_LIMIT,
-               'TORRENT_DIRECT_LIMIT': TORRENT_DIRECT_LIMIT,
                'TOTAL_TASKS_LIMIT': TOTAL_TASKS_LIMIT,
                'USER_TASKS_LIMIT': USER_TASKS_LIMIT,
                'ZIP_UNZIP_LIMIT': ZIP_UNZIP_LIMIT,
                'STORAGE_THRESHOLD': STORAGE_THRESHOLD,
-               'MAX_YTPLAYLIST': MAX_YTPLAYLIST,
                # GOFILE
                'GOFILE': GOFILE,
                'GOFILETOKEN': GOFILETOKEN,
                'GOFILEBASEFOLDER': GOFILEBASEFOLDER,
                # FMODE
-               'FORCE_SHORTEN': FORCE_SHORTEN,
-               'AUTO_MUTE': AUTO_MUTE,
-               'MUTE_CHAT_ID': MUTE_CHAT_ID,
-               'AUTO_MUTE_DURATION': AUTO_MUTE_DURATION,
-               'FUSERNAME': FUSERNAME,
-               'FSUB': FSUB,
-               'FSUB_CHANNEL_ID': FSUB_CHANNEL_ID,
-               'FSUB_BUTTON_NAME': FSUB_BUTTON_NAME,
-               'CHANNEL_USERNAME': CHANNEL_USERNAME,
                # STICKERS
                'STICKER_DELETE_DURATION': STICKER_DELETE_DURATION,
                'STICKERID_COUNT': STICKERID_COUNT,
                'STICKERID_ERROR': STICKERID_ERROR,
                'STICKERID_LEECH': STICKERID_LEECH,
-               'STICKERID_MIRROR': STICKERID_MIRROR,
                # IMAGES
                'ENABLE_IMAGE_MODE': ENABLE_IMAGE_MODE,
                'IMAGE_ARIA': IMAGE_ARIA,
@@ -650,12 +607,9 @@ config_dict = {'BOT_TOKEN': BOT_TOKEN,
                'IMAGE_GD': IMAGE_GD,
                'IMAGE_HELP': IMAGE_HELP,
                'IMAGE_HTML': IMAGE_HTML,
-               'IMAGE_IMDB': IMAGE_IMDB,
                'IMAGE_INFO': IMAGE_INFO,
                'IMAGE_ITALIC': IMAGE_ITALIC,
-               'IMAGE_JD': IMAGE_JD,
                'IMAGE_LOGS': IMAGE_LOGS,
-               'IMAGE_MDL': IMAGE_MDL,
                'IMAGE_MEDINFO': IMAGE_MEDINFO,
                'IMAGE_METADATA': IMAGE_METADATA,
                'IMAGE_MONO': IMAGE_MONO,
@@ -663,32 +617,19 @@ config_dict = {'BOT_TOKEN': BOT_TOKEN,
                'IMAGE_OWNER': IMAGE_OWNER,
                'IMAGE_PAUSE': IMAGE_PAUSE,
                'IMAGE_PRENAME': IMAGE_PRENAME,
-               'IMAGE_QBIT': IMAGE_QBIT,
                'IMAGE_RCLONE': IMAGE_RCLONE,
                'IMAGE_REMNAME': IMAGE_REMNAME,
-               'IMAGE_RSS': IMAGE_RSS,
-               'IMAGE_SEARCH': IMAGE_SEARCH,
                'IMAGE_STATS': IMAGE_STATS,
                'IMAGE_STATUS': IMAGE_STATUS,
                'IMAGE_SUFNAME': IMAGE_SUFNAME,
-               'IMAGE_TMDB': IMAGE_TMDB,
                'IMAGE_TXT': IMAGE_TXT,
                'IMAGE_UNAUTH': IMAGE_UNAUTH,
                'IMAGE_UNKNOW': IMAGE_UNKNOW,
                'IMAGE_USER': IMAGE_USER,
                'IMAGE_USETIINGS': IMAGE_USETIINGS,
                'IMAGE_VIDTOOLS': IMAGE_VIDTOOLS,
-               'IMAGE_WEL': IMAGE_WEL,
-               'IMAGE_WIBU': IMAGE_WIBU,
-               'IMAGE_YT': IMAGE_YT,
                'IMAGE_ZIP': IMAGE_ZIP,
-               'IMAGE_COMMONS_CHECK': IMAGE_COMMONS_CHECK,
                # ACCOUNTS
-               'JD_EMAIL': JD_EMAIL,
-               'JD_PASS': JD_PASS,
-               'UPTOBOX_TOKEN': UPTOBOX_TOKEN,
-               'CRYPT_GDTOT': CRYPT_GDTOT,
-               'FILELION_API': FILELION_API,
                'STREAMWISH_API': STREAMWISH_API,
                'SHARERPW_LARAVEL_SESSION': SHARERPW_LARAVEL_SESSION,
                'SHARERPW_XSRF_TOKEN': SHARERPW_XSRF_TOKEN,
