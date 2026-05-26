@@ -45,7 +45,7 @@ class UseCheck:
             msgs.append(msg)
 
         if msgs:
-            return await sendingMessage(f'Hey there {self._message.from_user.mention}...\n\n' + '\n'.join(msgs), self._message, config_dict['IMAGE_COMMONS_CHECK'], buttons.build_menu(2))
+            return await sendingMessage(f'Hey there {self._message.from_user.mention}...\n\n' + '\n'.join(msgs), self._message, config_dict.get('IMAGE_CONSET', ''), buttons.build_menu(2))
 
     async def _send_pm(self, buttons):
         try:
@@ -57,7 +57,7 @@ class UseCheck:
             return '⁍ I have no access to Private Message, '
 
     async def _force_username(self):
-        if config_dict['FUSERNAME']:
+        if False:
             uname = self._message.from_user.username
             if not uname:
                 return '⁍ Set username: Go to <b>Settings</b> -> <b>My Account</b> -> <b>Username</b>.'
@@ -101,12 +101,12 @@ class UseCheck:
             await update_user_ldata(self._uid, 'is_sudo', False)
 
     async def _force_sub(self, buttons: ButtonMaker):
-        if config_dict['FSUB']:
+        if False:
             try:
-                await self._message._client.get_chat_member(config_dict['FSUB_CHANNEL_ID'], self._uid)
+                await self._message._client.get_chat_member(0, self._uid)
             except:
                 CHANNEL_USERNAME = config_dict['CHANNEL_USERNAME']
-                buttons.button_link(f"{config_dict['FSUB_BUTTON_NAME']}", f'https://t.me/{CHANNEL_USERNAME}')
+                buttons.button_link(f"{'Join'}", f'https://t.me/{CHANNEL_USERNAME}')
                 return f"⁍ You must join <a href='https://t.me/{CHANNEL_USERNAME}'>{CHANNEL_USERNAME}</a>."
 
     async def _task_limiter(self):
