@@ -72,6 +72,8 @@ class SelectMode():
                f'\nMode: <b>{vidmode}</b>' if (vidmode := VID_MODE.get(self.mode)) else ''
                f'\nName: <b>{self.newname or "Default"}</b>'
                f'\nTrim Duration: <b>{list(self.extra_data.values())}</b>' if self.extra_data and self.mode == 'trim' else '')
+        if self.extra_data.get('resolution'):
+            msg += '\nResolution: <b>' + self.extra_data['resolution'] + '</b>'
         if self.mode in ('vid_sub', 'watermark'):
             hardsub = self.extra_data.get('hardsub')
             msg += f"\nHardsub Mode: <b>{'Enable' if hardsub else 'Disable'}</b>"
@@ -83,6 +85,8 @@ class SelectMode():
                     msg += f'\nFont Size: <b>{fontsize}</b>'
                 if fontcolour := self.extra_data.get('fontcolour'):
                     msg += f'\nFont Colour: <b>{fontcolour}</b>'
+        if quality := self.extra_data.get('quality'):
+            msg += f'\nQuality: <b>{quality}</b>'
         if self.mode == 'watermark' and (wmsize := self.extra_data.get('wmsize')):
             msg += f'\nWM Size: <b>{wmsize}</b>'
             if wmsize and (wmposition := self.extra_data.get('wmposition')):
@@ -125,6 +129,9 @@ class SelectMode():
             buttons.button_data('Cancel', 'vidtool cancel', 'footer')
             if self.mode:
                 buttons.button_data('Done', 'vidtool done', 'footer')
+            if self.mode == 'convert':
+                res = self.extra_data.get('resolution', '')
+                buttons.button_data(('🔥 ' if res else '') + 'Resolution', 'vidtool resolution', 'header')
             if self.mode in ('vid_sub', 'watermark') and await CustomFilters.sudo('', self.listener.message):
                 hardsub = self.extra_data.get('hardsub')
                 buttons.button_data(f"{'🔥 ' if hardsub else ''}Hardsub", 'vidtool hardsub', 'header')
@@ -150,6 +157,12 @@ class SelectMode():
                 case 'subsync':
                     buttons.button_data('Manual', 'vidtool sync_manual')
                     buttons.button_data('Auto', 'vidtool sync_auto')
+                case 'resolution':
+                    bnum = 3
+                    res_opts = ['1080p', '720p', '540p', '480p', '360p', '240p']
+                    [buttons.button_data(('🔥 ' if self.extra_data.get('resolution') == k else '') + k, 'vidtool resolution ' + k) for k in res_opts]
+                    buttons.button_data('<<', 'vidtool back', 'footer')
+                    buttons.button_data('Done', 'vidtool done', 'footer')
                 case 'quality':
                     bnum = 3
                     [buttons.button_data(f"{'🔥 ' if self.extra_data.get('quality') == key else ''}{key}", f'vidtool quality {key}') for key in ['2160p', '1440p', '1080p', '720p', '540p', '480p', '360p', '240p']]
@@ -252,6 +265,10 @@ async def cb_vidtools(_, query: CallbackQuery, obj: SelectMode):
             obj.mode = 'Task has been cancelled!'
             obj.is_cancelled = True
             obj.event.set()
+        case 'resolution':
+            if len(data) == 3:
+                obj.extra_data['resolution'] = data[2]
+            await obj.list_buttons('resolution')
         case 'quality' | 'popupwm' as value:
             if len(data) == 3:
                 obj.extra_data[value] = data[2] if value == 'quality' else int(data[2])
